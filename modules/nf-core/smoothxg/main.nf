@@ -23,7 +23,7 @@ process SMOOTHXG {
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
     smoothxg \\
-        --threads=$task.cpus \\
+        --threads=${task.cpus - 4} \\
         --gfa-in=${gfa} \\
         --smoothed-out=${prefix}.smoothxg.gfa \\
         $args
